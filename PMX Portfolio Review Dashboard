@@ -1,0 +1,77 @@
+- dashboard: pmx_portfolio_review_dashboard_roadmaps_view
+  title: PMX Portfolio Review Dashboard (Roadmaps View)
+  layout: newspaper
+  elements:
+  - name: Roadmaps View
+    title: Roadmaps View
+    model: pmxmetricsportfolio
+    explore: pmx_metrics_portfolio
+    type: looker_grid
+    fields: [pmx_metrics_portfolio.task_planned_external_launch_date, pmx_metrics_portfolio.task_name,
+      pmx_metrics_portfolio.task_status, pmx_metrics_portfolio.milestone_condition,
+      pmx_metrics_portfolio.milestone_type, pmx_metrics_portfolio.reporting_period,
+      pmx_metrics_portfolio.project_percent_complete, pmx_metrics_portfolio.project_planned_completion_date,
+      pmx_metrics_portfolio.project_owner]
+    sorts: [pmx_metrics_portfolio.project_planned_completion_date desc]
+    limit: 500
+    query_timezone: America/Los_Angeles
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    series_types: {}
+    value_labels: legend
+    label_type: labPer
+    defaults_version: 1
+    row: 6
+    col: 0
+    width: 24
+    height: 6
+  - name: Milestone Type
+    title: Milestone Type
+    model: pmxmetricsportfolio
+    explore: pmx_metrics_portfolio
+    type: looker_pie
+    fields: [pmx_metrics_portfolio.count, pmx_metrics_portfolio.milestone_type]
+    sorts: [pmx_metrics_portfolio.count desc]
+    limit: 500
+    query_timezone: America/Los_Angeles
+    value_labels: legend
+    label_type: labPer
+    series_types: {}
+    defaults_version: 1
+    row: 0
+    col: 0
+    width: 12
+    height: 6
+  - name: Milestone Condition
+    title: Milestone Condition
+    model: pmxmetricsportfolio
+    explore: pmx_metrics_portfolio
+    type: looker_pie
+    fields: [pmx_metrics_portfolio.milestone_condition, pmx_metrics_portfolio.count]
+    sorts: [pmx_metrics_portfolio.count desc]
+    limit: 500
+    query_timezone: America/Los_Angeles
+    value_labels: legend
+    label_type: labPer
+    series_types: {}
+    defaults_version: 1
+    row: 0
+    col: 12
+    width: 12
+    height: 6
