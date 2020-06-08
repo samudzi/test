@@ -1,0 +1,52 @@
+- dashboard: roadmaps_sample_dashboard
+  title: Roadmaps Sample Dashboard
+  layout: newspaper
+  elements:
+  - name: Roadmap Summary
+    title: Roadmap Summary
+    model: Roadmaps
+    explore: roadmapssampledata
+    type: looker_pie
+    fields: [roadmapssampledata.milestone_condition, roadmapssampledata.count]
+    sorts: [roadmapssampledata.count desc]
+    limit: 500
+    query_timezone: America/Los_Angeles
+    value_labels: labels
+    label_type: labVal
+    series_types: {}
+    row: 0
+    col: 0
+    width: 10
+    height: 6
+  - name: Roadmaps Sample Report
+    title: Roadmaps Sample Report
+    model: Roadmaps
+    explore: roadmapssampledata
+    type: table
+    fields: [roadmapssampledata.product_group, roadmapssampledata.portfolio_name,
+      roadmapssampledata.plc_phase, roadmapssampledata.milestone_type, roadmapssampledata.milestone_condition,
+      roadmapssampledata.launch_status, roadmapssampledata.roadmap_period, roadmapssampledata.planned_completion_date]
+    sorts: [roadmapssampledata.product_group]
+    limit: 500
+    query_timezone: America/Los_Angeles
+    row: 6
+    col: 0
+    width: 24
+    height: 6
+  - name: Current State
+    title: Current State
+    model: Roadmaps
+    explore: roadmapssampledata
+    type: looker_grid
+    fields: [roadmapssampledata.product_group, roadmapssampledata.portfolio_name,
+      roadmapssampledata.plc_phase, roadmapssampledata.milestone_type, roadmapssampledata.planned_completion_date]
+    sorts: [roadmapssampledata.milestone_type]
+    limit: 500
+    query_timezone: America/Los_Angeles
+    series_types: {}
+    series_column_widths:
+      roadmapssampledata.milestone_type: 164
+    row: 0
+    col: 10
+    width: 14
+    height: 6
